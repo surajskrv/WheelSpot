@@ -1,0 +1,22 @@
+.nav-sec {
+  background: linear-gradient(135deg,#343a40 0%, #2d4459 100%);
+}
+.hero-section {
+  background: linear-gradient(135deg, #0e1a31 0%, #89ace9 100%);
+  padding: 100px 0 60px;
+  width: 100%;
+}
+.service-card {
+  transition: transform 0.3s ease;
+}
+.service-card:hover {
+  transform: translateY(-10px);
+}
+.service-icon {
+  width: 70px;
+  height: 70px;
+  background: rgba(49, 137, 145, 0.1);
+}
+.cta-section {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+}

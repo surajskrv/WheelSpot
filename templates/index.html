@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WheelSpot</title>
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='image/favicon.ico') }}"
+      type="image/x-icon"
+    />
+    <!-- Vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@3.0.0/dist/vue-router.js"></script>
+    <!-- Bootstrap CDN-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .card {
+        transition: transform 0.2s ease-in-out;
+      }
+      .card:hover {
+        transform: scale(1.01);
+      }
+    </style>
+  </head>
+  <body class="p-0 m-0">
+    <div  id="app" class="bg-lightgrey p-0 m-0"></div>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="../static/script.js"></script>
+    <!---- Chart Js -------->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </body>
+</html>
