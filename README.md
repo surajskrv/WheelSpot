@@ -74,13 +74,12 @@ pip install -r requirements.txt
 
 ### 3. Start Redis Server
 ```bash
-# On Windows
+# redis server run command
 redis-server
 
-# On macOS/Linux
+# On macOS/Linux if you gettin port is already in use then use this command
 sudo service redis-server start
-# or
-redis-server
+
 ```
 
 ### 4. Initialize the Database
@@ -92,19 +91,26 @@ The database will be automatically created when you run the application for the 
 
 #### Option A: Run Flask App Only
 ```bash
-python app.py
+python3 app.py
 ```
 
 #### Option B: Run with Celery Worker (Recommended)
 ```bash
-# Terminal 1: Start Celery Worker
+
+# Terminal 1: Start Flask App
+python3 app.py
+
+# Terminal 1: Start Redis Server
+redis-server
+
+# Terminal 3: Start Celery Worker
 celery -A app.celery worker --loglevel=info
 
-# Terminal 2: Start Celery Beat (for scheduled tasks)
+# Terminal 4: Start Celery Beat (for scheduled tasks)
 celery -A app.celery beat --loglevel=info
 
-# Terminal 3: Start Flask App
-python app.py
+# Terminal 5: Start Mail server
+MailHog
 ```
 
 ### 6. Access the Application
