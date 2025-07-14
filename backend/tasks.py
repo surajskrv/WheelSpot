@@ -71,6 +71,6 @@ def booking_update_daily():
         if user.id == 1:
             continue
         text = f"Hello {user.name}, Check out new Parking Lots. Please check the app at http://127.0.0.1:5000"
-        response = requests.post("https://chat.googleapis.com/v1/spaces/AAQAUkWqlaE/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=rf2dx-7ImweS8u-7TfU1ayBxp_r1x0nWFM68BmToX30", json = {"text": text})
+        response = requests.post("Gspace Webhook link", json = {"text": text})
         print(response.status_code)
     return "Parking update sent to users"
