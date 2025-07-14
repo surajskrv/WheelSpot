@@ -208,6 +208,7 @@ The system validates Indian vehicle number format:
 
 ### Scheduled Tasks
 - **Monthly Reports**: Sent every 2 minutes (configurable)
+  see it for reference <img width="348" height="700" alt="Screenshot 2025-07-14 140301" src="https://github.com/user-attachments/assets/fad31296-44bc-4864-892f-54e6fe4b4d39" />
 - **Daily Updates**: Sent every 5 minutes (configurable)
 
 ### Manual Tasks
