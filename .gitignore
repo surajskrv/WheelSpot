@@ -4,7 +4,8 @@ venv
 __pycache__/
 *.pyc
 *.pyo
-
+celerybeat-schedule
+dump.rdb
 .DS_Store
 .idea/
 .vscode/
