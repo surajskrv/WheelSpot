@@ -1,14 +1,26 @@
+import os
+
 class Config():
     DEBUG = False
-    SQLALCHEMY_TRACK_MODIFICATIONS = True
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
     
 class LocalDevelopmentConfig(Config):
-    SQLALCHEMY_DATABASE_URI = 'sqlite:///wheelspot.db'
+    # Database Configuration
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL', 'sqlite:///wheelspot.db')
+    
+    # Fix for Postgres URLs (postgres:// -> postgresql://)
+    if SQLALCHEMY_DATABASE_URI and SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
+        SQLALCHEMY_DATABASE_URI = SQLALCHEMY_DATABASE_URI.replace("postgres://", "postgresql://", 1)
+        
     DEBUG = True
     
-    # Security configuration
-    SECRET_KEY = 'wheelspot-secret-key' # hash user credentials in session
-    SECURITY_PASSWORD = 'bcrypt' # Mechanism for password hashing
-    SECURITY_PASSWORD_SALT = 'wheelspot-password-salt' # help in password hashing
-    WTF_CSRF_ENABLED = False # Disable CSRF protection for testing
-    SECURITY_TOKEN_AUTHENTICATION_HEADER = 'Auth-Token' # Use token authentication
+    # Security Configuration
+    SECRET_KEY = os.environ.get('SECRET_KEY', 'wheelspot-secret-key') 
+    SECURITY_PASSWORD = 'bcrypt' 
+    SECURITY_PASSWORD_SALT = os.environ.get('SECURITY_PASSWORD_SALT', 'wheelspot-password-salt') 
+    WTF_CSRF_ENABLED = False 
+    SECURITY_TOKEN_AUTHENTICATION_HEADER = 'Auth-Token'
+    
+    # Celery Configuration (Optional: Required if you add Redis later)
+    CELERY_BROKER_URL = os.environ.get('CELERY_BROKER_URL', 'redis://localhost:6379/0')
+    CELERY_RESULT_BACKEND = os.environ.get('CELERY_RESULT_BACKEND', 'redis://localhost:6379/0')
